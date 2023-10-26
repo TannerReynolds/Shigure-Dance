@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shigure Dancey Dance</title>
+  <style>
+    html {
+      background-color: transparent !important;
+    }
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent !important;
+      width: 100vw;
+      height: 100vh;
+    }
+    #draggable {
+      -webkit-app-region: drag;
+      display: inline-block;
+      background-color: transparent !important;
+    }
+    video {
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+      background-color: transparent !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="draggable">
+    <video id="video" src="video.webm" autoplay playsinline muted></video>
+  </div>
+  <script>
+    const videoElement = document.getElementById('video');
+    videoElement.onloadedmetadata = () => {
+      const { videoWidth, videoHeight } = videoElement;
+      const draggableDiv = document.getElementById('draggable');
+      draggableDiv.style.width = `${videoWidth}px`;
+      draggableDiv.style.height = `${videoHeight}px`;
+      const win = window.electron.getCurrentWindow();
+      win.setSize(videoWidth, videoHeight);
+      win.center();
+    };
+
+
+  const video = document.getElementById('video');
+  video.addEventListener('ended', function() {
+    this.currentTime = .1;
+    this.play();
+  }, false);
+
+  </script>
+</body>
+</html>
