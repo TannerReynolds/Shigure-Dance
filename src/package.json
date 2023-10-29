@@ -4,12 +4,13 @@
   "description": "danceydance",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx electron-packager ./ shigure --electronVersion=11.3.0"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^27.0.2",
+    "electron": "11.3.0",
     "electron-packager": "^17.1.2"
   }
 }

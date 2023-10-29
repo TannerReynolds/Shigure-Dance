@@ -10,8 +10,12 @@ function createWindow() {
     frame: false,
     transparent: true,
     alwaysOnTop: true,
+    titleBarStyle: "hidden",
+    titleBarOverlay: false,
+    skipTaskbar: true,
     webPreferences: {
       contextIsolation: true,
+      devTools: false,
       preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
     },
